@@ -62,5 +62,14 @@ SJSELECT *SELECT(NSArray<NSString *> *args) {
 
 
 @implementation SJWHERE
+- (SJORDER *(^)(void))ORDERBY {
+    return ^{
+        return SJORDER.new;
+    };
+}
+@end
+
+
+@implementation SJORDER
 
 @end

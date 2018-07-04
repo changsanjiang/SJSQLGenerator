@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <stdarg.h>
-@class SJSELECT, SJFROM, SJWHERE, SJCONDITION;
+@class SJSELECT, SJFROM, SJWHERE, SJCONDITION, SJORDER;
 
 #pragma mark - Select - 选择属性, 生成`SELECT`语句
 
@@ -57,6 +57,10 @@ extern SJSELECT *SELECT(NSArray<NSString *> *args);
 @end
 
 @interface SJWHERE: NSObject
+@property (nonatomic, copy, readonly) SJORDER *(^ORDERBY)(void);
+@end
+
+@interface SJORDER: NSObject
 @end
 
 

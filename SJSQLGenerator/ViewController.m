@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     
-    SELECT(s(Product)).FROM("Products").WHERE(c1(Product, prod_id = 10));
+    SELECT(s(Product)).FROM("Products").WHERE(c1(Product, prod_id = 10)).ORDERBY();
     SELECT(s1(Product, prod_name)).FROM("Products").WHERE(c1(Product, prod_id = 10));
     SELECT(s2(Product, prod_name, prod_price)).FROM("Products").WHERE(c1(Product, prod_id = 10));
     SELECT(s3(Product, prod_name, prod_price, prod_desc)).FROM("Products").WHERE(c1(Product, prod_id = 10));
