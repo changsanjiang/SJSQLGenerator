@@ -42,9 +42,12 @@ static NSString *CollectionViewCellID = @"CollectionViewCell";
     
     NSString *
     sql = SJ_SELECT("*").FROM("Products").WHERE("prod_price >= 4").to_s;
-//    sql = SJ_SELECT("*").FROM("Products").ORDER_BY("prod_price").to_s;
-//    sql = SJ_SELECT("*").FROM("Products").WHERE("prod_price = 3.14").ORDER_BY("prod_price DESC").LIMIT(SJMakeLimit(3, 5)).to_s;
-//    sql = SJ_SELECT("*").FROM("Products").LIMIT(SJMakeLimit(3, 5)).to_s;
+    sql = SJ_SELECT("*").FROM("Products").ORDER_BY("prod_price DESC").to_s;
+    sql = SJ_SELECT("*").FROM("Products").WHERE("prod_price > 3").ORDER_BY("prod_price DESC").LIMIT(SJMakeLimit(0, 5)).to_s;
+    sql = SJ_SELECT("*").FROM("Products").LIMIT(SJMakeLimit(3, 5)).to_s;
+    
+    
+    
     
     _data = sj_sql_query(self.database, sql.UTF8String, nil);
     _keys = _data.firstObject.allKeys;
