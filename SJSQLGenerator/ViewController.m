@@ -40,12 +40,13 @@ static NSString *CollectionViewCellID = @"CollectionViewCell";
     
     [self prepareTestData];
     
+
     NSString *
     sql = SJ_SELECT("*").FROM("Products").WHERE("prod_price >= 4").to_s;
     sql = SJ_SELECT("*").FROM("Products").ORDER_BY("prod_price DESC").to_s;
-    sql = SJ_SELECT("*").FROM("Products").WHERE("prod_price > 3").ORDER_BY("prod_price DESC").LIMIT(SJMakeLimit(0, 5)).to_s;
-    sql = SJ_SELECT("*").FROM("Products").LIMIT(SJMakeLimit(3, 5)).to_s;
-    
+    sql = SJ_SELECT("*").FROM("Products").WHERE("prod_price > 3").ORDER_BY("prod_price DESC").LIMIT(0, 5).to_s;
+    sql = SJ_SELECT("*").FROM("Products").LIMIT(1, 0).to_s;
+    sql = SJ_SELECT("*").FROM("Products").WHERE("NOT vend_id IN('DLL01', 'BRS01')").to_s;
     
     
     

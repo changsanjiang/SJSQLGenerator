@@ -13,6 +13,25 @@ NS_ASSUME_NONNULL_BEGIN
  目的很简单如下:
  函数调用:    SELECT("*").FROM("Products").WHERE("prod_price = 3.14").to_s;
  生成的语句: "SELECT * FROM Products WHERE prod_price = 3.14;"
+ 
+ 
+ // 返回(价格 + 供应商)不重复的数据
+ SJ_SELECT("DISTINCT prod_price, vend_id").FROM("Products").WHERE("prod_price >= 4").to_s
+ 
+ // 这些修饰, 怎么完美的添加上去呢?
+ 
+ SELECT DISTINCT prod_price FROM Products;
+ 
+ SELECT prod_price FROM Products WHERE vend_id = 'BRS01' ORDER BY prod_price DESC;
+ 
+ // 是否妥协?
+ // 待续
+ // 前缀函数解决
+ SJ_SELECT(DISTINCT("prod_price, vend_id")).FROM("Products").WHERE("prod_price >= 4").to_s
+ 
+ // 后缀函数呢? DESC? ASC?
+ // ........
+ 
  */
 
 @class SJSQLFrom, SJSQLWhere;
@@ -80,21 +99,14 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub) {
 }
 @end
 
-
 #pragma mark - Limit
-
-SJLimit SJMakeLimit(unsigned long begin, unsigned long offset) {
-    SJLimit limit = (SJLimit){begin, offset};
-    return limit;
-}
-
 @interface SJSQLSelect(Limit)<SJSQLLimit>
 @end
 
 @implementation SJSQLSelect(Limit)
-- (id<SJSQLToString> (^)(SJLimit))LIMIT {
-    return ^ (SJLimit l) {
-        [self->_sqlStrM appendFormat:@" LIMIT %lu, %lu", l.begin, l.offset];
+- (id<SJSQLToString> (^)(unsigned long begin, unsigned long offset))LIMIT {
+    return ^ (unsigned long begin, unsigned long offset) {
+        [self->_sqlStrM appendFormat:@" LIMIT %lu, %lu", begin, offset];
         return self;
     };
 }
