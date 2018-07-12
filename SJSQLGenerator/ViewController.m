@@ -48,7 +48,20 @@ static NSString *CollectionViewCellID = @"CollectionViewCell";
     sql = SJ_SELECT("*").FROM("Products").LIMIT(1, 0).to_s;
     sql = SJ_SELECT("*").FROM("Products").WHERE("NOT vend_id IN('DLL01', 'BRS01')").to_s;
     
-//    sql = SJ_SELECT("*").t
+    sql = SJ_SELECT("Date()").to_s;
+    sql= SJ_SELECT("TRIM('   sbc    ')").to_s;
+    
+    sql = SJ_SELECT("vend_name || '(' || vend_country || ')' AS vend_title").FROM("Vendors").to_s;
+    
+    sql = SJ_SELECT("LOWER(vend_name) AS Tse").FROM("Vendors").to_s;
+    
+    
+    
+    
+    
+    
+    
+    
     
     _data = sj_sql_query(self.database, sql.UTF8String, nil);
     _keys = _data.firstObject.allKeys;

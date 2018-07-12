@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///
 /// SJ_SELECT("*").FROM("Products").WHERE("prod_price > 3").ORDER_BY("prod_price DESC").LIMIT(2, 5).to_s;
 ///
-extern id<SJSQLFrom, SJSQLToString> SJ_SELECT(char *sub);
+extern id<SJSQLFrom> SJ_SELECT(char *sub);
 
 
 #pragma mark -
@@ -30,10 +30,27 @@ extern id<SJSQLFrom, SJSQLToString> SJ_SELECT(char *sub);
 @end
 
 @protocol SJSQLSelect
-@property (nonatomic, copy, readonly) id<SJSQLFrom, SJSQLToString> (^SELECT)(char *sub);
+///
+///
+/// SELECT("prod_name, prod_price")                                         -- 表列查询
+///
+///                                                                         -- 计算字段: https://www.jianshu.com/p/768b033113c4
+/// SELECT("vend_name || '(' || vend_country || ')' AS vend_title")         -- `||` 拼接. AS + 计算字段. `Bears R US(USA)` == `name + (country)` == title
+/// SELECT("item_price * item_num AS expended_price")                       -- `+ - * /`. 此外可以使用`()`调整优先级
+///
+///                                                                         -- 使用函数: https://www.jianshu.com/p/2e7d1423946d
+///                                                                         -- 使用函数: https://www.jianshu.com/p/2a4089feb564
+/// SELECT("vend_name, UPPER(vend_name) AS vend_name_upcase")               -- `UPPER()`文本转大写
+/// SELECT("vend_name, LOWER(vend_name) AS vend_name_downcase")             -- `LOWER()`文本转小写
+///                                                                         -- .... 还有好多函数
+///
+///
+///
+///
+@property (nonatomic, copy, readonly) id<SJSQLFrom> (^SELECT)(char *sub);
 @end
 
-@protocol SJSQLFrom
+@protocol SJSQLFrom<SJSQLToString>
 @property (nonatomic, copy, readonly) id<SJSQLWhere, SJSQLOrderBy, SJSQLLimit> (^FROM)(char *sub);
 @end
 

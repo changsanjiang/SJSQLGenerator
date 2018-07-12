@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
     return self;
 }
 - (NSString *)to_s {
-    if ( [_sqlStrM hasSuffix:@";"] ) return _sqlStrM;
+    if ( [_sqlStrM hasSuffix:@";"] ) return _sqlStrM.copy;
     return [_sqlStrM stringByAppendingString:@";"];
 }
 @end
@@ -122,7 +122,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-extern id<SJSQLFrom, SJSQLToString> SJ_SELECT(char *sub) {
+extern id<SJSQLFrom> SJ_SELECT(char *sub) {
     return SJSQLSelect.new.SELECT(sub);
 }
 NS_ASSUME_NONNULL_END
