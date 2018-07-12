@@ -5,9 +5,11 @@
 //  Created by BlueDancer on 2018/7/12.
 //  Copyright © 2018年 SanJiang. All rights reserved.
 //
+//  术语介绍 - https://www.jianshu.com/p/72bfb96a6e94
+//
 
 #import <Foundation/Foundation.h>
-@protocol SJSQLFrom, SJSQLWhere, SJSQLOrderBy, SJSQLToString, SJSQLLimit;
+@protocol SJSQLSelect, SJSQLFrom, SJSQLWhere, SJSQLOrderBy, SJSQLToString, SJSQLLimit;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,6 +30,10 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 @property (nonatomic, copy, readonly) NSString *to_s;
 @end
 
+@protocol SJSQLSelect
+@property (nonatomic, copy, readonly) id<SJSQLFrom> (^SELECT)(char *sub);
+@end
+
 @protocol SJSQLFrom
 @property (nonatomic, copy, readonly) id<SJSQLWhere, SJSQLOrderBy, SJSQLLimit> (^FROM)(char *sub);
 @end
@@ -35,6 +41,13 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 @protocol SJSQLWhere<SJSQLToString, SJSQLLimit>
 ///
 /// WHERE("prod_price >= 3")                                                --  >=, <=, >, <, =
+/// WHERE("prod_price >= 3, vend_id = 'BRS01'")                             --  ...
+///
+///                                                                         --  搜索模式
+/// WHERE("prod_name LIKE 'Fish%%'")                                        --  `Fish%`. 其中谓词: LIKE. `%`告诉DBMS匹配`Fish`0个以上字符. 相当于正则中的`*`
+/// WHERE("prod_name LIKE '%%bean bag%%'")                                  --  `%bean bga%`. 通配符可以在搜索模式中使用多次
+/// WHERE("prod_name LIKE 'F%%y'")                                          --  `F%y`
+/// WHERE("prod_name LIKE '_8 inch teddy bear'")                            --  `_8 inch teddy bear`. 其中`_`匹配单个字符. 相当于正则中的`.`
 ///
 /// WHERE("prod_des IS NULL")                                               --  IS NULL
 /// WHERE("prod_des ISNULL")                                                --  ISNULL 相当于 IS NULL

@@ -46,7 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithSub:(char *)sub {
     self = [super init];
     if ( !self ) return nil;
-    _sqlStrM = [[NSMutableString alloc] initWithFormat:@"SELECT %s", sub];
+    _sqlStrM = [NSMutableString string];
     return self;
 }
 - (NSString *)to_s {
@@ -55,9 +55,18 @@ NS_ASSUME_NONNULL_BEGIN
 }
 @end
 
-extern id<SJSQLFrom> SJ_SELECT(char *sub) {
-    return (id)[[SJSQLSelect alloc] initWithSub:sub];
+#pragma mark - Select
+@interface SJSQLSelect(Select)<SJSQLSelect>
+@end
+
+@implementation SJSQLSelect(Select)
+- (id<SJSQLFrom> (^)(char * _Nonnull))SELECT {
+    return ^ (char *sub) {
+        [self->_sqlStrM appendFormat:@"SELECT %s", sub];
+        return (id)self;
+    };
 }
+@end
 
 #pragma mark - From
 @interface SJSQLSelect(From)<SJSQLFrom>
@@ -112,4 +121,8 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub) {
 }
 @end
 
+
+extern id<SJSQLFrom> SJ_SELECT(char *sub) {
+    return SJSQLSelect.new.SELECT(sub);
+}
 NS_ASSUME_NONNULL_END
