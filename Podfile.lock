@@ -1,0 +1,21 @@
+PODS:
+  - SJDBMap (1.2.0.7):
+    - SJDBMap/DatabaseMapping (= 1.2.0.7)
+    - SJDBMap/Protocol (= 1.2.0.7)
+  - SJDBMap/DatabaseMapping (1.2.0.7):
+    - SJDBMap/Protocol
+  - SJDBMap/Protocol (1.2.0.7)
+
+DEPENDENCIES:
+  - SJDBMap
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SJDBMap
+
+SPEC CHECKSUMS:
+  SJDBMap: 9b2e5c56c655817682a16f3b55f31ba1e70f3c53
+
+PODFILE CHECKSUM: afefb910d4993c125c0872daa9461d6ea4a5ebd2
+
+COCOAPODS: 1.5.3

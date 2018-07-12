@@ -4,7 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SJSQLGenerator.xcscheme</key>
+		<key>Pods-SJSQLGenerator.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>SJDBMap.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>

@@ -7,11 +7,30 @@
 //
 
 #import "ViewController.h"
-#import "SJSQL.h"
 #import "Product.h"
+#import "SJSQL.h"
 
-@interface ViewController ()
+/**
+ 最近在复习SQL, 我会在这个库记录SQL相关的子句, 以防后期遗忘
+ 
+ 目的很简单如下:
+ 函数调用:    SELECT("*").FROM("Products").WHERE("prod_price = 3.14").to_s;
+ 生成的语句: "SELECT * FROM Products WHERE prod_price = 3.14;"
+ 
+ */
 
+#import <sqlite3.h>
+#import <SJDBMap/SJDatabaseFunctions.h>
+#import "Vendor.h"
+#import "CollectionViewCell.h"
+
+static NSString *CollectionViewCellID = @"CollectionViewCell";
+
+@interface ViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@property (nonatomic) sqlite3 *database;
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) NSArray<NSDictionary *> *data;
+@property (nonatomic, strong) NSArray<NSString *> *keys;
 @end
 
 @implementation ViewController
@@ -19,50 +38,61 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self prepareTestData];
     
-    SELECT(s(Product)).FROM("Products").WHERE(c1(Product, prod_id = 10)).ORDERBY();
-    SELECT(s1(Product, prod_name)).FROM("Products").WHERE(c1(Product, prod_id = 10));
-    SELECT(s2(Product, prod_name, prod_price)).FROM("Products").WHERE(c1(Product, prod_id = 10));
-    SELECT(s3(Product, prod_name, prod_price, prod_desc)).FROM("Products").WHERE(c1(Product, prod_id = 10));
-    SELECT(s4(Product, prod_name, prod_price, prod_desc, vend_id)).FROM("Products").WHERE(c1(Product, prod_id = 10));
+    NSString *
+    sql = SJ_SELECT("*").FROM("Products").WHERE("prod_price >= 4").to_s;
+//    sql = SJ_SELECT("*").FROM("Products").ORDER_BY("prod_price").to_s;
+//    sql = SJ_SELECT("*").FROM("Products").WHERE("prod_price = 3.14").ORDER_BY("prod_price DESC").LIMIT(SJMakeLimit(3, 5)).to_s;
+//    sql = SJ_SELECT("*").FROM("Products").LIMIT(SJMakeLimit(3, 5)).to_s;
     
+    _data = sj_sql_query(self.database, sql.UTF8String, nil);
+    _keys = _data.firstObject.allKeys;
+    [self.view addSubview:self.collectionView];
+    _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+    [_collectionView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = true;
+    [_collectionView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = true;
+    [_collectionView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = true;
+    [_collectionView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = true;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-
-/// 测试SELECT
-- (void)testSelect {
-    s(Product);
-    s1(Product, prod_id);
-    s2(Product, prod_id, prod_name);
-    s3(Product, prod_id, prod_name, prod_price);
-    s4(Product, prod_id, prod_name, prod_price, prod_desc);
-    s5(Product, prod_id, prod_name, prod_price, prod_desc, vend_id);
+- (void)prepareTestData {
+    NSString *dbPath = [[NSBundle mainBundle] pathForResource:@"tysql" ofType:@"sqlite"];
+    sj_database_open(dbPath.UTF8String, &_database);
 }
 
-/// 测试查询条件
-- (void)testCondition {
-    
-    /// 产品id等于10的产品
-    /// 等于
-    c1(Product, prod_id = 10);
-    
-    /// 产品id小于20, 大于10的产品
-    /// AND
-    c2(Product, prod_id <= 20, prod_id >= 10);
-
-    /// 产品名称等于`apple`或者等于`banana`的产品
-    /// OR
-    c2(Product, prod_name = @"apple", prod_name = @"banana");
-    
-    /// 产品名称等于`apple`或者等于`banana`, 并且供应商的ID等于2008的产品
-    /// (OR) + AND
-    c3(Product, prod_name = @"apple", prod_name = @"banana", vend_id = 2008);
-    
-    /// 产品ID等于`10`, `11`, `12`, `13`的产品
-    /// IN
-    id ids = @[@(10), @(11), @(12), @(13)];
-    c1(Product, prod_id = ids); // 报警告, 想办法处理一下
+- (UICollectionView *)collectionView {
+    if ( _collectionView ) return _collectionView;
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    layout.minimumLineSpacing = 0;
+    layout.minimumInteritemSpacing = 0;
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    _collectionView.backgroundColor = [UIColor whiteColor];
+    [_collectionView registerClass:NSClassFromString(CollectionViewCellID) forCellWithReuseIdentifier:CollectionViewCellID];
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    return _collectionView;
 }
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 2;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if ( section == 0 ) return _keys.count;
+    return _data.count * _keys.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CollectionViewCell *cell = (CollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:CollectionViewCellID forIndexPath:indexPath];
+    if ( indexPath.section == 0 ) cell.text = _keys[indexPath.item];
+    else cell.text = _data[indexPath.item / _keys.count % _data.count][_keys[indexPath.item % _keys.count]];
+    return cell;
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.view.frame.size.width / _keys.count, 44);
+}
 @end
+

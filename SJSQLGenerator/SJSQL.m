@@ -1,75 +1,103 @@
 //
 //  SJSQL.m
-//  SJDBMapProject
+//  SJSQLGenerator
 //
-//  Created by BlueDancer on 2018/7/4.
+//  Created by BlueDancer on 2018/7/12.
 //  Copyright © 2018年 SanJiang. All rights reserved.
 //
 
 #import "SJSQL.h"
 
-NSArray<NSString *> *properties(int count, ...) {
-    if ( count == 0 ) return nil;
-    va_list args;
-    va_start(args, count);
-    NSMutableArray<NSString *> *argsM = [NSMutableArray array];
-    for ( int i = 0 ; i < count ; ++i ) {
-        const char *arg = va_arg(args, char *);
-        if ( 0 != strcmp("NA", arg) ) {
-            [argsM addObject:[NSString stringWithUTF8String:arg]];
-        }
-    }
-    va_end(args);
-    return argsM;
-}
+NS_ASSUME_NONNULL_BEGIN
+/**
+ 目的很简单如下:
+ 函数调用:    SELECT("*").FROM("Products").WHERE("prod_price = 3.14").to_s;
+ 生成的语句: "SELECT * FROM Products WHERE prod_price = 3.14;"
+ */
 
-@implementation NSObject (SJAdd)
-- (void)setNA:(char *)NA {
-    
+@class SJSQLFrom, SJSQLWhere;
+
+#pragma mark - SELECT
+@interface SJSQLSelect: NSObject<SJSQLToString>
+@end
+
+@implementation SJSQLSelect {
+    NSMutableString *_sqlStrM;
 }
-- (char *)NA {
-    return NULL;
+- (instancetype)initWithSub:(char *)sub {
+    self = [super init];
+    if ( !self ) return nil;
+    _sqlStrM = [[NSMutableString alloc] initWithFormat:@"SELECT %s", sub];
+    return self;
+}
+- (NSString *)to_s {
+    if ( [_sqlStrM hasSuffix:@";"] ) return _sqlStrM;
+    return [_sqlStrM stringByAppendingString:@";"];
 }
 @end
 
-#pragma mark -
-
-
-SJSELECT *SELECT(NSArray<NSString *> *args) {
-    NSLog(@"SELECT %@", args);
-    return [SJSELECT new];
+extern id<SJSQLFrom> SJ_SELECT(char *sub) {
+    return (id)[[SJSQLSelect alloc] initWithSub:sub];
 }
 
+#pragma mark - From
+@interface SJSQLSelect(From)<SJSQLFrom>
+@end
 
-@implementation SJSELECT
-- (SJFROM *(^)(const char *))FROM {
-    return ^(const char *table) {
-        NSLog(@"FROM %s", table);
-        return SJFROM.new;
+@implementation SJSQLSelect(From)
+- (id<SJSQLWhere> (^)(char *))FROM {
+    return ^ (char *sub) {
+        [self->_sqlStrM appendFormat:@" FROM %s", sub];
+        return (id)self;
+    };
+}
+@end
+
+#pragma mark - Where
+@interface SJSQLSelect(Where)<SJSQLWhere>
+@end
+
+@implementation SJSQLSelect(Where)
+- (id<SJSQLOrderBy, SJSQLToString> (^)(char *))WHERE {
+    return ^ (char *sub){
+        [self->_sqlStrM appendFormat:@" WHERE %s", sub];
+        return (id)self;
+    };
+}
+@end
+
+#pragma mark - Order_By
+/// 在指定一条 ORDER BY 子句时, 应该保证它是 SELECT 语句中最后一条子句. 如果它不是最后的子句, 将会出现错误消息.
+@interface SJSQLSelect(Order_By)<SJSQLOrderBy>
+@end
+
+@implementation SJSQLSelect(Order_By)
+- (id<SJSQLToString> (^)(char * _Nonnull))ORDER_BY {
+    return ^ (char *sub) {
+        [self->_sqlStrM appendFormat:@" ORDER BY %s", sub];
+        return (id)self;
     };
 }
 @end
 
 
-@implementation SJFROM
-- (SJWHERE *(^)(const char *condition))WHERE {
-    return ^(const char *condition) {
-        NSLog(@"WHERE %s", condition);
-        return SJWHERE.new;
+#pragma mark - Limit
+
+SJLimit SJMakeLimit(unsigned long begin, unsigned long offset) {
+    SJLimit limit = (SJLimit){begin, offset};
+    return limit;
+}
+
+@interface SJSQLSelect(Limit)<SJSQLLimit>
+@end
+
+@implementation SJSQLSelect(Limit)
+- (id<SJSQLToString> (^)(SJLimit))LIMIT {
+    return ^ (SJLimit l) {
+        [self->_sqlStrM appendFormat:@" LIMIT %lu, %lu", l.begin, l.offset];
+        return self;
     };
 }
 @end
 
-
-@implementation SJWHERE
-- (SJORDER *(^)(void))ORDERBY {
-    return ^{
-        return SJORDER.new;
-    };
-}
-@end
-
-
-@implementation SJORDER
-
-@end
+NS_ASSUME_NONNULL_END
