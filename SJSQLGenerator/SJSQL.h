@@ -21,8 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///
 /// SJ_SELECT("*").FROM("Products").WHERE("prod_price > 3").ORDER_BY("prod_price DESC").LIMIT(2, 5).to_s;
 ///
-extern id<SJSQLFrom> SJ_SELECT(char *sub);
-
+extern id<SJSQLFrom, SJSQLToString> SJ_SELECT(char *sub);
 
 
 #pragma mark -
@@ -31,7 +30,7 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 @end
 
 @protocol SJSQLSelect
-@property (nonatomic, copy, readonly) id<SJSQLFrom> (^SELECT)(char *sub);
+@property (nonatomic, copy, readonly) id<SJSQLFrom, SJSQLToString> (^SELECT)(char *sub);
 @end
 
 @protocol SJSQLFrom

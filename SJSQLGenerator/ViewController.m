@@ -48,7 +48,7 @@ static NSString *CollectionViewCellID = @"CollectionViewCell";
     sql = SJ_SELECT("*").FROM("Products").LIMIT(1, 0).to_s;
     sql = SJ_SELECT("*").FROM("Products").WHERE("NOT vend_id IN('DLL01', 'BRS01')").to_s;
     
-    
+//    sql = SJ_SELECT("*").t
     
     _data = sj_sql_query(self.database, sql.UTF8String, nil);
     _keys = _data.firstObject.allKeys;
