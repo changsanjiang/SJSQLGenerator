@@ -54,6 +54,9 @@ NS_ASSUME_NONNULL_BEGIN
     if ( [_sqlStrM hasSuffix:@";"] ) return _sqlStrM.copy;
     return [_sqlStrM stringByAppendingString:@";"];
 }
+- (const char *)to_s_c {
+    return self.to_s.UTF8String;
+}
 @end
 
 #pragma mark - Select

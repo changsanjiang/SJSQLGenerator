@@ -27,25 +27,27 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 #pragma mark -
 @protocol SJSQLToString
 @property (nonatomic, copy, readonly) NSString *to_s;
+/// A null-terminated UTF8 representation of the string.
+/// This C string is a pointer to a structure inside the string object, which may have a lifetime shorter than the string object and will certainly not have a longer lifetime. Therefore, you should copy the C string if it needs to be stored outside of the memory context in which you use this property.
+@property (nonatomic, readonly) const char *to_s_c;
 @end
 
 @protocol SJSQLSelect
 ///
 ///
-/// SELECT("prod_name, prod_price")                                         -- 表列查询
+/// SELECT("prod_name, prod_price")                                         --  表列查询
 ///
-///                                                                         -- 计算字段: https://www.jianshu.com/p/768b033113c4
-/// SELECT("vend_name || '(' || vend_country || ')' AS vend_title")         -- `||` 拼接. AS + 计算字段. `Bears R US(USA)` == `name + (country)` == title
-/// SELECT("item_price * item_num AS expended_price")                       -- `+ - * /`. 此外可以使用`()`调整优先级
+///                                                                         --  计算字段: https://www.jianshu.com/p/768b033113c4
+/// SELECT("vend_name || '(' || vend_country || ')' AS vend_title")         --  `||` 拼接. AS + 计算字段. `Bears R US(USA)` == `name + (country)` == title
+/// SELECT("item_price * item_num AS expended_price")                       --  `+ - * /`. 此外可以使用`()`调整优先级
 ///
-///                                                                         -- 使用函数: https://www.jianshu.com/p/2e7d1423946d
-///                                                                         -- 使用函数: https://www.jianshu.com/p/2a4089feb564
-/// SELECT("vend_name, UPPER(vend_name) AS vend_name_upcase")               -- `UPPER()`文本转大写
-/// SELECT("vend_name, LOWER(vend_name) AS vend_name_downcase")             -- `LOWER()`文本转小写
-///                                                                         -- .... 还有好多函数
-///
-///
-///
+///                                                                         --  使用函数: https://www.jianshu.com/p/2e7d1423946d
+///                                                                         --  使用函数: https://www.jianshu.com/p/2a4089feb564
+/// SELECT("vend_name, UPPER(vend_name) AS vend_name_upcase")               --  `UPPER()`文本转大写
+/// SELECT("vend_name, LOWER(vend_name) AS vend_name_downcase")             --  `LOWER()`文本转小写
+/// SELECT("AVG(prod_price) AS avg_price")                                  --  `AVG()`返回平均值
+/// SELECT("MAX(prod_price) AS max_price, MIN(prod_price) AS min_price")    --  `MAX(), MIN()`函数
+///                                                                         --  .... 还有好多函数
 ///
 @property (nonatomic, copy, readonly) id<SJSQLFrom> (^SELECT)(char *sub);
 @end
