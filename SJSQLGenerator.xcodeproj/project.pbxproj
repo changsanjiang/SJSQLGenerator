@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77099F7B20F83D7600DED48F /* SJSQLSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 77099F7A20F83D7600DED48F /* SJSQLSelect.m */; };
 		7779872720ECE86F007F51AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7779872620ECE86F007F51AE /* AppDelegate.m */; };
 		7779872A20ECE86F007F51AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7779872920ECE86F007F51AE /* ViewController.m */; };
 		7779872D20ECE86F007F51AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7779872B20ECE86F007F51AE /* Main.storyboard */; };
@@ -18,7 +19,6 @@
 		7779874D20ECE910007F51AE /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 7779874520ECE910007F51AE /* Order.m */; };
 		7779874E20ECE910007F51AE /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 7779874720ECE910007F51AE /* Product.m */; };
 		7779874F20ECE910007F51AE /* Vendor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7779874A20ECE910007F51AE /* Vendor.m */; };
-		778FE5CA20F74FB7003E777C /* SJSQL.m in Sources */ = {isa = PBXBuildFile; fileRef = 778FE5C920F74FB7003E777C /* SJSQL.m */; };
 		778FE5CD20F76986003E777C /* tysql.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 778FE5CC20F76986003E777C /* tysql.sqlite */; };
 		778FE5D320F769C4003E777C /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 778FE5D220F769C4003E777C /* CollectionViewCell.m */; };
 		B4A40885A8073841292F4AB4 /* libPods-SJSQLGenerator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB6DE50800ED784BC177E2 /* libPods-SJSQLGenerator.a */; };
@@ -26,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		40B51E08D6244F1468CE6EA7 /* Pods-SJSQLGenerator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SJSQLGenerator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SJSQLGenerator/Pods-SJSQLGenerator.debug.xcconfig"; sourceTree = "<group>"; };
+		77099F7920F83D7600DED48F /* SJSQLSelect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SJSQLSelect.h; sourceTree = "<group>"; };
+		77099F7A20F83D7600DED48F /* SJSQLSelect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SJSQLSelect.m; sourceTree = "<group>"; };
 		7779872220ECE86F007F51AE /* SJSQLGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SJSQLGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7779872520ECE86F007F51AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7779872620ECE86F007F51AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -47,7 +49,6 @@
 		7779874920ECE910007F51AE /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
 		7779874A20ECE910007F51AE /* Vendor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vendor.m; sourceTree = "<group>"; };
 		778FE5C820F74FB7003E777C /* SJSQL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SJSQL.h; sourceTree = "<group>"; };
-		778FE5C920F74FB7003E777C /* SJSQL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SJSQL.m; sourceTree = "<group>"; };
 		778FE5CC20F76986003E777C /* tysql.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = tysql.sqlite; path = ../../SQLDemo/Copy/Copy/SQLDemo/tysql.sqlite; sourceTree = "<group>"; };
 		778FE5D120F769C4003E777C /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		778FE5D220F769C4003E777C /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
@@ -110,7 +111,8 @@
 				7779872820ECE86F007F51AE /* ViewController.h */,
 				7779872920ECE86F007F51AE /* ViewController.m */,
 				778FE5C820F74FB7003E777C /* SJSQL.h */,
-				778FE5C920F74FB7003E777C /* SJSQL.m */,
+				77099F7920F83D7600DED48F /* SJSQLSelect.h */,
+				77099F7A20F83D7600DED48F /* SJSQLSelect.m */,
 				778FE5CC20F76986003E777C /* tysql.sqlite */,
 				778FE5D120F769C4003E777C /* CollectionViewCell.h */,
 				778FE5D220F769C4003E777C /* CollectionViewCell.m */,
@@ -234,7 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				778FE5CA20F74FB7003E777C /* SJSQL.m in Sources */,
+				77099F7B20F83D7600DED48F /* SJSQLSelect.m in Sources */,
 				7779872A20ECE86F007F51AE /* ViewController.m in Sources */,
 				7779874C20ECE910007F51AE /* Customer.m in Sources */,
 				7779874F20ECE910007F51AE /* Vendor.m in Sources */,

@@ -1,12 +1,13 @@
 //
-//  SJSQL.m
+//  SJSQLSelect.m
 //  SJSQLGenerator
 //
-//  Created by BlueDancer on 2018/7/12.
+//  Created by BlueDancer on 2018/7/13.
 //  Copyright © 2018年 SanJiang. All rights reserved.
 //
 
-#import "SJSQL.h"
+#import "SJSQLSelect.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 /**
