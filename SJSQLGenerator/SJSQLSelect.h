@@ -90,10 +90,16 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 @end
 
 @protocol SJSQLGroupBy<SJSQLToString, SJSQLLimit>
+///
+/// GROUP_BY("order_num").HAVING("items >= 2")
+///
 @property (nonatomic, copy, readonly) id<SJSQLHaving> (^GROUP_BY)(char *sub);
 @end
 
 @protocol SJSQLHaving<SJSQLToString, SJSQLLimit>
+///
+/// GROUP_BY("order_num").HAVING("items >= 2")
+///
 @property (nonatomic, copy, readonly) id<SJSQLOrderBy> (^HAVING)(char *sub);
 @end
 

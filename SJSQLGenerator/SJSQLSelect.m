@@ -64,10 +64,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @implementation SJSQLSelect(Select)
-- (id<SJSQLFrom> (^)(char * _Nonnull))SELECT {
+- (id (^)(char * _Nonnull))SELECT {
     return ^ (char *sub) {
         [self->_sqlStrM appendFormat:@"SELECT %s", sub];
-        return (id)self;
+        return self;
     };
 }
 @end
@@ -77,10 +77,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @implementation SJSQLSelect(From)
-- (id<SJSQLWhere, SJSQLGroupBy, SJSQLOrderBy, SJSQLLimit> (^)(char *))FROM {
+- (id (^)(char *))FROM {
     return ^ (char *sub) {
         [self->_sqlStrM appendFormat:@" FROM %s", sub];
-        return (id)self;
+        return self;
     };
 }
 @end
@@ -90,10 +90,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @implementation SJSQLSelect(Where)
-- (id<SJSQLOrderBy, SJSQLToString> (^)(char *))WHERE {
+- (id (^)(char *))WHERE {
     return ^ (char *sub){
         [self->_sqlStrM appendFormat:@" WHERE %s", sub];
-        return (id)self;
+        return self;
     };
 }
 @end
@@ -103,10 +103,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @implementation SJSQLSelect(Group_By)
-- (id<SJSQLHaving>  _Nonnull (^)(char * _Nonnull))GROUP_BY {
+- (id (^)(char * _Nonnull))GROUP_BY {
     return ^ (char *sub){
         [self->_sqlStrM appendFormat:@" GROUP BY %s", sub];
-        return (id)self;
+        return self;
     };
 }
 @end
@@ -117,10 +117,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @implementation SJSQLSelect(Having)
-- (id<SJSQLOrderBy>  _Nonnull (^)(char * _Nonnull))HAVING {
+- (id (^)(char * _Nonnull))HAVING {
     return ^ (char *sub) {
         [self->_sqlStrM appendFormat:@" HAVING %s", sub];
-        return (id)self;
+        return self;
     };
 }
 @end
@@ -131,10 +131,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @implementation SJSQLSelect(Order_By)
-- (id<SJSQLToString> (^)(char * _Nonnull))ORDER_BY {
+- (id (^)(char * _Nonnull))ORDER_BY {
     return ^ (char *sub) {
         [self->_sqlStrM appendFormat:@" ORDER BY %s", sub];
-        return (id)self;
+        return self;
     };
 }
 @end
@@ -144,7 +144,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @implementation SJSQLSelect(Limit)
-- (id<SJSQLToString> (^)(unsigned long begin, unsigned long offset))LIMIT {
+- (id(^)(unsigned long begin, unsigned long offset))LIMIT {
     return ^ (unsigned long begin, unsigned long offset) {
         [self->_sqlStrM appendFormat:@" LIMIT %lu, %lu", begin, offset];
         return self;
