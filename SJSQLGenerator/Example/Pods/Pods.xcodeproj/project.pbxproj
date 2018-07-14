@@ -1,0 +1,986 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01B4C12E2DFD01A07BB8B18CD137030B /* SJDBMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5578A623F3071A260A9F9F30E13433A0 /* SJDBMap.framework */; };
+		088C0E147BDE51D1C6FBE29D1A882E02 /* Pods-SJSQLGenerator_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D088BF18DC0FE0425C99BA83466B7E77 /* Pods-SJSQLGenerator_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0934D437A15B7576D432C403E3F42C00 /* SJDatabaseFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 35BDE10931B8BA925C79C8ABC9B76D30 /* SJDatabaseFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1147D77CFEAB13CB9E110C78C196385B /* SJDBMap-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4CA00A3D41411D26AF0F1CF47E0675 /* SJDBMap-dummy.m */; };
+		2482C9F1F63A4573677C36DFDD82EB8B /* SJDBMap-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 45891A88F69D4A03B748055AF19FF91B /* SJDBMap-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		27706316AC6D81BE2ADBC62683031008 /* SJDatabaseMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 82DE3B947492B437B8200848F60A62F1 /* SJDatabaseMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3DFB8D43CC37432AA004E569D10E382E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 201BBA6044DACE08F4F9AD9EEA0209B4 /* Foundation.framework */; };
+		47856E90DF2DC10C8A747EF561B46A19 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 201BBA6044DACE08F4F9AD9EEA0209B4 /* Foundation.framework */; };
+		504442077470B8E13A73D130F001F061 /* Pods-SJSQLGenerator_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A266D4CB5F4D37950F73CE4C674013BB /* Pods-SJSQLGenerator_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5463710F77E7F092A371FA1BC9D79FB6 /* Pods-SJSQLGenerator_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F01C2997B64C45F82DA51FDDECCB18 /* Pods-SJSQLGenerator_Example-dummy.m */; };
+		5AFC6B53A5B6518318537B796210D6FD /* SJDatabaseFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = C26A7A0F86F5D3C2E26AA658055DED51 /* SJDatabaseFunctions.m */; };
+		63DD22A71877DD14F5C54F2DF060CE09 /* SJDatabaseMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 123E4B92EEC78893841DBF9021E8A9A3 /* SJDatabaseMap.m */; };
+		6406AD4CFB2E267AEA2DCFB47CDD839A /* SJDatabaseMap+RealTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C1F3FDD5B26B21ADCEB4EAC69B91D8 /* SJDatabaseMap+RealTime.m */; };
+		67C5C03FB7B1D9465EBDC5CA12EC94D9 /* SJSQLGenerator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC319CB74815D36E76CDDF07D7DECC2 /* SJSQLGenerator-dummy.m */; };
+		873B4D7F4DEC930551FCB06BBD1F566C /* SJDatabaseMap+RealTime.h in Headers */ = {isa = PBXBuildFile; fileRef = BA0053A845EB354AD7EAC47ABA9D9F1C /* SJDatabaseMap+RealTime.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D1B3D5E710333195ED6DA2E1F5358C6 /* SJSQL.h in Headers */ = {isa = PBXBuildFile; fileRef = E4971B1FDA006AD4AC9AEB174185562B /* SJSQL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		979427C8811E956ECE3457938DFEAD2E /* SJSQLSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5E8AE8C48A1CD5D508ECAACA9424DE /* SJSQLSelect.m */; };
+		BB6A02FDA4C1876BC82E055CD3DBA613 /* SJDBMapUseProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = A6CFD5F1447FB7CFEAB927D3AB6495FE /* SJDBMapUseProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDFB8F5B74B344BCF81C54F608948921 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 201BBA6044DACE08F4F9AD9EEA0209B4 /* Foundation.framework */; };
+		D96FF048416806C7ECAE231D96A6C74C /* SJDBMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 064806B350A7395712D48AD95F18DB8D /* SJDBMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EFC902004A8E0F6B548E54D91D1A1FA8 /* SJSQLGenerator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8973863723EC81D5AFD43CEA48AE7542 /* SJSQLGenerator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F7F7FAEE6E20581A1D09CAC2F5A3C46A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 201BBA6044DACE08F4F9AD9EEA0209B4 /* Foundation.framework */; };
+		FC6AB5648481A815DD9D4B4BF52A7B02 /* SJSQLSelect.h in Headers */ = {isa = PBXBuildFile; fileRef = 03FFD0D7C65FF5FC9DDD6F6373B22B8A /* SJSQLSelect.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF9E1F82B48B8D40A319EDAA276BDF88 /* Pods-SJSQLGenerator_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3B884C7F5AFD18A793BD8DABB55FE4 /* Pods-SJSQLGenerator_Tests-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4D1B47D954B8E15DA68EC977DCE14D5B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A434A62418A116E604B2FF9AE12B7948;
+			remoteInfo = "Pods-SJSQLGenerator_Example";
+		};
+		B1D49BD1ADC24BE5B9B067373AB99205 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A49F256D83072F97ECCCD844FB431ABE;
+			remoteInfo = SJDBMap;
+		};
+		DCF04666A74D2D2C554725B20110C86C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A49F256D83072F97ECCCD844FB431ABE;
+			remoteInfo = SJDBMap;
+		};
+		E4410DCB8499869F00FB54F873AB6897 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFA48CAE613252DD027FE3DE77A75CED;
+			remoteInfo = SJSQLGenerator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03C1F3FDD5B26B21ADCEB4EAC69B91D8 /* SJDatabaseMap+RealTime.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SJDatabaseMap+RealTime.m"; path = "SJDBMap/DatabaseMapping/SJDatabaseMap+RealTime.m"; sourceTree = "<group>"; };
+		03FFD0D7C65FF5FC9DDD6F6373B22B8A /* SJSQLSelect.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJSQLSelect.h; path = SJSQLGenerator/SJSQLSelect.h; sourceTree = "<group>"; };
+		064806B350A7395712D48AD95F18DB8D /* SJDBMap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJDBMap.h; path = SJDBMap/SJDBMap.h; sourceTree = "<group>"; };
+		074ED99AF47C99089A2CFB5DFAE4B88F /* Pods-SJSQLGenerator_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SJSQLGenerator_Example-frameworks.sh"; sourceTree = "<group>"; };
+		07844E0A4E76611C063649532469D9AF /* Pods_SJSQLGenerator_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SJSQLGenerator_Tests.framework; path = "Pods-SJSQLGenerator_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BAD434BF4CBA8A7F90C84391DF6C69D /* Pods-SJSQLGenerator_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SJSQLGenerator_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		123E4B92EEC78893841DBF9021E8A9A3 /* SJDatabaseMap.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJDatabaseMap.m; path = SJDBMap/DatabaseMapping/SJDatabaseMap.m; sourceTree = "<group>"; };
+		18B5546B762E344B82338602B9C5A3BB /* Pods-SJSQLGenerator_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SJSQLGenerator_Tests-resources.sh"; sourceTree = "<group>"; };
+		201BBA6044DACE08F4F9AD9EEA0209B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		2C99FAF4E3576F8145D44B46B3471DC3 /* SJSQLGenerator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SJSQLGenerator.modulemap; sourceTree = "<group>"; };
+		31DA1BAB6A2BB88E5A3495D3A279B2BD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35B704F538378536DA3F8AC5D79C3C35 /* Pods-SJSQLGenerator_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SJSQLGenerator_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		35BDE10931B8BA925C79C8ABC9B76D30 /* SJDatabaseFunctions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJDatabaseFunctions.h; path = SJDBMap/DatabaseMapping/SJDatabaseFunctions.h; sourceTree = "<group>"; };
+		3E1E4BF758A5C158B8D2083D0603B37D /* SJSQLGenerator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SJSQLGenerator.framework; path = SJSQLGenerator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E35C4A483AED9BB3DDE1B9A19D6A675 /* Pods-SJSQLGenerator_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SJSQLGenerator_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		4136DE3C8892FE0BC5451628388D13B9 /* Pods_SJSQLGenerator_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SJSQLGenerator_Example.framework; path = "Pods-SJSQLGenerator_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		41F01C2997B64C45F82DA51FDDECCB18 /* Pods-SJSQLGenerator_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SJSQLGenerator_Example-dummy.m"; sourceTree = "<group>"; };
+		443832E6F4D4BA7C531D18AFBE61EDCF /* Pods-SJSQLGenerator_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SJSQLGenerator_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		45891A88F69D4A03B748055AF19FF91B /* SJDBMap-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SJDBMap-umbrella.h"; sourceTree = "<group>"; };
+		48F5EA61C58C8070058639B408FBE715 /* Pods-SJSQLGenerator_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SJSQLGenerator_Example.release.xcconfig"; sourceTree = "<group>"; };
+		4AEABD65287EBB0A6A6D4C57F52C495F /* Pods-SJSQLGenerator_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SJSQLGenerator_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		4BD9E378849CA5DD85F6A1085EC2073C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5578A623F3071A260A9F9F30E13433A0 /* SJDBMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SJDBMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61D4C122E366D880A9EBD90269E3D828 /* SJDBMap.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SJDBMap.xcconfig; sourceTree = "<group>"; };
+		7A488D42A91D73D4D6FF2CA151B8B484 /* SJDBMap-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SJDBMap-prefix.pch"; sourceTree = "<group>"; };
+		7A4CA00A3D41411D26AF0F1CF47E0675 /* SJDBMap-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SJDBMap-dummy.m"; sourceTree = "<group>"; };
+		7BB45FD37EC21DB998BBE959127B177E /* Pods-SJSQLGenerator_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SJSQLGenerator_Example-resources.sh"; sourceTree = "<group>"; };
+		80D5443793D0F78F593394C05F6EF376 /* Pods-SJSQLGenerator_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SJSQLGenerator_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		82DE3B947492B437B8200848F60A62F1 /* SJDatabaseMap.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJDatabaseMap.h; path = SJDBMap/DatabaseMapping/SJDatabaseMap.h; sourceTree = "<group>"; };
+		844F2448FE1A670F818F55DCC222E8C5 /* Pods-SJSQLGenerator_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SJSQLGenerator_Tests.modulemap"; sourceTree = "<group>"; };
+		8973863723EC81D5AFD43CEA48AE7542 /* SJSQLGenerator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SJSQLGenerator-umbrella.h"; sourceTree = "<group>"; };
+		8B5E8AE8C48A1CD5D508ECAACA9424DE /* SJSQLSelect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJSQLSelect.m; path = SJSQLGenerator/SJSQLSelect.m; sourceTree = "<group>"; };
+		910596AAB8826F650D300131F35777DB /* SJSQLGenerator-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SJSQLGenerator-prefix.pch"; sourceTree = "<group>"; };
+		934E78CC3D1C7E07EA492824DAA9184B /* SJSQLGenerator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SJSQLGenerator.xcconfig; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		973651B772A567B1A6AECC9DED539096 /* Pods-SJSQLGenerator_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SJSQLGenerator_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		9BFB28408D6E9B0109CEB055644C4692 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A266D4CB5F4D37950F73CE4C674013BB /* Pods-SJSQLGenerator_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SJSQLGenerator_Example-umbrella.h"; sourceTree = "<group>"; };
+		A6CFD5F1447FB7CFEAB927D3AB6495FE /* SJDBMapUseProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJDBMapUseProtocol.h; path = SJDBMap/Protocol/SJDBMapUseProtocol.h; sourceTree = "<group>"; };
+		AF383689E07830D5EBCFB8978BC21841 /* SJDBMap.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SJDBMap.modulemap; sourceTree = "<group>"; };
+		B79E42873BB492C59525E164DE1ADB53 /* SJDBMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SJDBMap.framework; path = SJDBMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA0053A845EB354AD7EAC47ABA9D9F1C /* SJDatabaseMap+RealTime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SJDatabaseMap+RealTime.h"; path = "SJDBMap/DatabaseMapping/SJDatabaseMap+RealTime.h"; sourceTree = "<group>"; };
+		C143501C82864B66AADA3A81A210BE17 /* Pods-SJSQLGenerator_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SJSQLGenerator_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		C26A7A0F86F5D3C2E26AA658055DED51 /* SJDatabaseFunctions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SJDatabaseFunctions.m; path = SJDBMap/DatabaseMapping/SJDatabaseFunctions.m; sourceTree = "<group>"; };
+		C6B1A4644EE3509F37E1AADA56FBFBAC /* SJSQLGenerator.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = SJSQLGenerator.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CCBBAE2B7F2A405EF848907378CA13F8 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		CF043F616B8B8673E350F82A87C1E71B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D088BF18DC0FE0425C99BA83466B7E77 /* Pods-SJSQLGenerator_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SJSQLGenerator_Tests-umbrella.h"; sourceTree = "<group>"; };
+		DAC319CB74815D36E76CDDF07D7DECC2 /* SJSQLGenerator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SJSQLGenerator-dummy.m"; sourceTree = "<group>"; };
+		E4971B1FDA006AD4AC9AEB174185562B /* SJSQL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SJSQL.h; path = SJSQLGenerator/SJSQL.h; sourceTree = "<group>"; };
+		E986CCB00ABB5D38F6F6D12F06008EEE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		F0A9C5CDA573256BCA9F94F2B4B2553F /* Pods-SJSQLGenerator_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SJSQLGenerator_Example.modulemap"; sourceTree = "<group>"; };
+		FB3B884C7F5AFD18A793BD8DABB55FE4 /* Pods-SJSQLGenerator_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SJSQLGenerator_Tests-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		263DF422845C1A2F2B2CD395D3DA3798 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDFB8F5B74B344BCF81C54F608948921 /* Foundation.framework in Frameworks */,
+				01B4C12E2DFD01A07BB8B18CD137030B /* SJDBMap.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5672ABD1FEE726FA99733492380738CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DFB8D43CC37432AA004E569D10E382E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C6566315DC8F81B58EBEBC52816646F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47856E90DF2DC10C8A747EF561B46A19 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E31AAFBCA84933D8CBDE10AE95062959 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7F7FAEE6E20581A1D09CAC2F5A3C46A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1BCCD70A366BE1C25D7ADCBE18E8151B /* SJDBMap */ = {
+			isa = PBXGroup;
+			children = (
+				064806B350A7395712D48AD95F18DB8D /* SJDBMap.h */,
+				D9152045146FCC9B211A84F980B91922 /* DatabaseMapping */,
+				A15E67EB4CC094B026A2F88CED98D5AF /* Protocol */,
+				FC21F0311C67DD954EB91110A787D2D5 /* Support Files */,
+			);
+			name = SJDBMap;
+			path = SJDBMap;
+			sourceTree = "<group>";
+		};
+		1DDBACCE0ECA5A4789AD51D0F0FDF8D8 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CAC23CAE6791E6464B638517556D9E3E /* Pods-SJSQLGenerator_Example */,
+				CA837F0864028DE4845C1621C446B184 /* Pods-SJSQLGenerator_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		1F90F97FF1214A50C459F6D5728ED0AF /* SJSQLGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				E4971B1FDA006AD4AC9AEB174185562B /* SJSQL.h */,
+				03FFD0D7C65FF5FC9DDD6F6373B22B8A /* SJSQLSelect.h */,
+				8B5E8AE8C48A1CD5D508ECAACA9424DE /* SJSQLSelect.m */,
+				6FC185265031B4AB604D838864B12F6F /* Pod */,
+				4AD6F65CCBD34E31AE8164417D4260A7 /* Support Files */,
+			);
+			name = SJSQLGenerator;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		23269550C9C2720A847DDEBD3B45671E /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F90F97FF1214A50C459F6D5728ED0AF /* SJSQLGenerator */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		4AD6F65CCBD34E31AE8164417D4260A7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				31DA1BAB6A2BB88E5A3495D3A279B2BD /* Info.plist */,
+				2C99FAF4E3576F8145D44B46B3471DC3 /* SJSQLGenerator.modulemap */,
+				934E78CC3D1C7E07EA492824DAA9184B /* SJSQLGenerator.xcconfig */,
+				DAC319CB74815D36E76CDDF07D7DECC2 /* SJSQLGenerator-dummy.m */,
+				910596AAB8826F650D300131F35777DB /* SJSQLGenerator-prefix.pch */,
+				8973863723EC81D5AFD43CEA48AE7542 /* SJSQLGenerator-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/SJSQLGenerator";
+			sourceTree = "<group>";
+		};
+		6FC185265031B4AB604D838864B12F6F /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				CCBBAE2B7F2A405EF848907378CA13F8 /* LICENSE */,
+				E986CCB00ABB5D38F6F6D12F06008EEE /* README.md */,
+				C6B1A4644EE3509F37E1AADA56FBFBAC /* SJSQLGenerator.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		79EAD5DABA8905E3017598C8C330BE41 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				201BBA6044DACE08F4F9AD9EEA0209B4 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7BE04F02C87165A9A132D5D4452129CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4136DE3C8892FE0BC5451628388D13B9 /* Pods_SJSQLGenerator_Example.framework */,
+				07844E0A4E76611C063649532469D9AF /* Pods_SJSQLGenerator_Tests.framework */,
+				B79E42873BB492C59525E164DE1ADB53 /* SJDBMap.framework */,
+				3E1E4BF758A5C158B8D2083D0603B37D /* SJSQLGenerator.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				23269550C9C2720A847DDEBD3B45671E /* Development Pods */,
+				FF5C047B8D0A7DA13F2A220050E6FA4B /* Frameworks */,
+				AEC2072A48240AF88B6E5C444FC01272 /* Pods */,
+				7BE04F02C87165A9A132D5D4452129CF /* Products */,
+				1DDBACCE0ECA5A4789AD51D0F0FDF8D8 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		A15E67EB4CC094B026A2F88CED98D5AF /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A6CFD5F1447FB7CFEAB927D3AB6495FE /* SJDBMapUseProtocol.h */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		AEC2072A48240AF88B6E5C444FC01272 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1BCCD70A366BE1C25D7ADCBE18E8151B /* SJDBMap */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CA837F0864028DE4845C1621C446B184 /* Pods-SJSQLGenerator_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				4BD9E378849CA5DD85F6A1085EC2073C /* Info.plist */,
+				844F2448FE1A670F818F55DCC222E8C5 /* Pods-SJSQLGenerator_Tests.modulemap */,
+				443832E6F4D4BA7C531D18AFBE61EDCF /* Pods-SJSQLGenerator_Tests-acknowledgements.markdown */,
+				973651B772A567B1A6AECC9DED539096 /* Pods-SJSQLGenerator_Tests-acknowledgements.plist */,
+				FB3B884C7F5AFD18A793BD8DABB55FE4 /* Pods-SJSQLGenerator_Tests-dummy.m */,
+				0BAD434BF4CBA8A7F90C84391DF6C69D /* Pods-SJSQLGenerator_Tests-frameworks.sh */,
+				18B5546B762E344B82338602B9C5A3BB /* Pods-SJSQLGenerator_Tests-resources.sh */,
+				D088BF18DC0FE0425C99BA83466B7E77 /* Pods-SJSQLGenerator_Tests-umbrella.h */,
+				4AEABD65287EBB0A6A6D4C57F52C495F /* Pods-SJSQLGenerator_Tests.debug.xcconfig */,
+				3E35C4A483AED9BB3DDE1B9A19D6A675 /* Pods-SJSQLGenerator_Tests.release.xcconfig */,
+			);
+			name = "Pods-SJSQLGenerator_Tests";
+			path = "Target Support Files/Pods-SJSQLGenerator_Tests";
+			sourceTree = "<group>";
+		};
+		CAC23CAE6791E6464B638517556D9E3E /* Pods-SJSQLGenerator_Example */ = {
+			isa = PBXGroup;
+			children = (
+				9BFB28408D6E9B0109CEB055644C4692 /* Info.plist */,
+				F0A9C5CDA573256BCA9F94F2B4B2553F /* Pods-SJSQLGenerator_Example.modulemap */,
+				80D5443793D0F78F593394C05F6EF376 /* Pods-SJSQLGenerator_Example-acknowledgements.markdown */,
+				C143501C82864B66AADA3A81A210BE17 /* Pods-SJSQLGenerator_Example-acknowledgements.plist */,
+				41F01C2997B64C45F82DA51FDDECCB18 /* Pods-SJSQLGenerator_Example-dummy.m */,
+				074ED99AF47C99089A2CFB5DFAE4B88F /* Pods-SJSQLGenerator_Example-frameworks.sh */,
+				7BB45FD37EC21DB998BBE959127B177E /* Pods-SJSQLGenerator_Example-resources.sh */,
+				A266D4CB5F4D37950F73CE4C674013BB /* Pods-SJSQLGenerator_Example-umbrella.h */,
+				35B704F538378536DA3F8AC5D79C3C35 /* Pods-SJSQLGenerator_Example.debug.xcconfig */,
+				48F5EA61C58C8070058639B408FBE715 /* Pods-SJSQLGenerator_Example.release.xcconfig */,
+			);
+			name = "Pods-SJSQLGenerator_Example";
+			path = "Target Support Files/Pods-SJSQLGenerator_Example";
+			sourceTree = "<group>";
+		};
+		D9152045146FCC9B211A84F980B91922 /* DatabaseMapping */ = {
+			isa = PBXGroup;
+			children = (
+				35BDE10931B8BA925C79C8ABC9B76D30 /* SJDatabaseFunctions.h */,
+				C26A7A0F86F5D3C2E26AA658055DED51 /* SJDatabaseFunctions.m */,
+				82DE3B947492B437B8200848F60A62F1 /* SJDatabaseMap.h */,
+				123E4B92EEC78893841DBF9021E8A9A3 /* SJDatabaseMap.m */,
+				BA0053A845EB354AD7EAC47ABA9D9F1C /* SJDatabaseMap+RealTime.h */,
+				03C1F3FDD5B26B21ADCEB4EAC69B91D8 /* SJDatabaseMap+RealTime.m */,
+			);
+			name = DatabaseMapping;
+			sourceTree = "<group>";
+		};
+		FC21F0311C67DD954EB91110A787D2D5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF043F616B8B8673E350F82A87C1E71B /* Info.plist */,
+				AF383689E07830D5EBCFB8978BC21841 /* SJDBMap.modulemap */,
+				61D4C122E366D880A9EBD90269E3D828 /* SJDBMap.xcconfig */,
+				7A4CA00A3D41411D26AF0F1CF47E0675 /* SJDBMap-dummy.m */,
+				7A488D42A91D73D4D6FF2CA151B8B484 /* SJDBMap-prefix.pch */,
+				45891A88F69D4A03B748055AF19FF91B /* SJDBMap-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SJDBMap";
+			sourceTree = "<group>";
+		};
+		FF5C047B8D0A7DA13F2A220050E6FA4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5578A623F3071A260A9F9F30E13433A0 /* SJDBMap.framework */,
+				79EAD5DABA8905E3017598C8C330BE41 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		310A9D0F2C14A0491CEBD50835F93D8C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D1B3D5E710333195ED6DA2E1F5358C6 /* SJSQL.h in Headers */,
+				EFC902004A8E0F6B548E54D91D1A1FA8 /* SJSQLGenerator-umbrella.h in Headers */,
+				FC6AB5648481A815DD9D4B4BF52A7B02 /* SJSQLSelect.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44963CB232B169CF4C90B86B31FE327E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				504442077470B8E13A73D130F001F061 /* Pods-SJSQLGenerator_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB28C91EDDAB9C8DD32A07758F5CA964 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				088C0E147BDE51D1C6FBE29D1A882E02 /* Pods-SJSQLGenerator_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6604EE5ED34068FF1253ED8126793FD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0934D437A15B7576D432C403E3F42C00 /* SJDatabaseFunctions.h in Headers */,
+				873B4D7F4DEC930551FCB06BBD1F566C /* SJDatabaseMap+RealTime.h in Headers */,
+				27706316AC6D81BE2ADBC62683031008 /* SJDatabaseMap.h in Headers */,
+				2482C9F1F63A4573677C36DFDD82EB8B /* SJDBMap-umbrella.h in Headers */,
+				D96FF048416806C7ECAE231D96A6C74C /* SJDBMap.h in Headers */,
+				BB6A02FDA4C1876BC82E055CD3DBA613 /* SJDBMapUseProtocol.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		79C2696724CAB6B99891E4CED238A296 /* Pods-SJSQLGenerator_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA8A1364F798A4B193A90CAA33E51D2F /* Build configuration list for PBXNativeTarget "Pods-SJSQLGenerator_Tests" */;
+			buildPhases = (
+				E7DC13263683239315158D2ACABCB7B8 /* Sources */,
+				E31AAFBCA84933D8CBDE10AE95062959 /* Frameworks */,
+				CB28C91EDDAB9C8DD32A07758F5CA964 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0309E316F830CBBB40E2FAF756F69BA3 /* PBXTargetDependency */,
+			);
+			name = "Pods-SJSQLGenerator_Tests";
+			productName = "Pods-SJSQLGenerator_Tests";
+			productReference = 07844E0A4E76611C063649532469D9AF /* Pods_SJSQLGenerator_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A434A62418A116E604B2FF9AE12B7948 /* Pods-SJSQLGenerator_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FEC5F84A91CA7C9EEE3700E79322F9AD /* Build configuration list for PBXNativeTarget "Pods-SJSQLGenerator_Example" */;
+			buildPhases = (
+				72F136B133937C07125E1D8417505AAC /* Sources */,
+				5672ABD1FEE726FA99733492380738CD /* Frameworks */,
+				44963CB232B169CF4C90B86B31FE327E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0BB6B7F860DB0EC77085BC7401DE1696 /* PBXTargetDependency */,
+				B01CFFF6B62B79123573708FB058B589 /* PBXTargetDependency */,
+			);
+			name = "Pods-SJSQLGenerator_Example";
+			productName = "Pods-SJSQLGenerator_Example";
+			productReference = 4136DE3C8892FE0BC5451628388D13B9 /* Pods_SJSQLGenerator_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A49F256D83072F97ECCCD844FB431ABE /* SJDBMap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 558CC72FF085A602EC01C0B0F2302567 /* Build configuration list for PBXNativeTarget "SJDBMap" */;
+			buildPhases = (
+				40AF98FCBC1A30852B672507B8B18EE7 /* Sources */,
+				9C6566315DC8F81B58EBEBC52816646F /* Frameworks */,
+				F6604EE5ED34068FF1253ED8126793FD /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SJDBMap;
+			productName = SJDBMap;
+			productReference = B79E42873BB492C59525E164DE1ADB53 /* SJDBMap.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BFA48CAE613252DD027FE3DE77A75CED /* SJSQLGenerator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04104257025EDB181DEB29D7F0B9BA30 /* Build configuration list for PBXNativeTarget "SJSQLGenerator" */;
+			buildPhases = (
+				85A3B6813285B550E8107A3A851264B0 /* Sources */,
+				263DF422845C1A2F2B2CD395D3DA3798 /* Frameworks */,
+				310A9D0F2C14A0491CEBD50835F93D8C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01F6CE7A2CAE930E6629D5D37F26FC3B /* PBXTargetDependency */,
+			);
+			name = SJSQLGenerator;
+			productName = SJSQLGenerator;
+			productReference = 3E1E4BF758A5C158B8D2083D0603B37D /* SJSQLGenerator.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 7BE04F02C87165A9A132D5D4452129CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A434A62418A116E604B2FF9AE12B7948 /* Pods-SJSQLGenerator_Example */,
+				79C2696724CAB6B99891E4CED238A296 /* Pods-SJSQLGenerator_Tests */,
+				A49F256D83072F97ECCCD844FB431ABE /* SJDBMap */,
+				BFA48CAE613252DD027FE3DE77A75CED /* SJSQLGenerator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		40AF98FCBC1A30852B672507B8B18EE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AFC6B53A5B6518318537B796210D6FD /* SJDatabaseFunctions.m in Sources */,
+				6406AD4CFB2E267AEA2DCFB47CDD839A /* SJDatabaseMap+RealTime.m in Sources */,
+				63DD22A71877DD14F5C54F2DF060CE09 /* SJDatabaseMap.m in Sources */,
+				1147D77CFEAB13CB9E110C78C196385B /* SJDBMap-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72F136B133937C07125E1D8417505AAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5463710F77E7F092A371FA1BC9D79FB6 /* Pods-SJSQLGenerator_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85A3B6813285B550E8107A3A851264B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67C5C03FB7B1D9465EBDC5CA12EC94D9 /* SJSQLGenerator-dummy.m in Sources */,
+				979427C8811E956ECE3457938DFEAD2E /* SJSQLSelect.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7DC13263683239315158D2ACABCB7B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF9E1F82B48B8D40A319EDAA276BDF88 /* Pods-SJSQLGenerator_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01F6CE7A2CAE930E6629D5D37F26FC3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SJDBMap;
+			target = A49F256D83072F97ECCCD844FB431ABE /* SJDBMap */;
+			targetProxy = B1D49BD1ADC24BE5B9B067373AB99205 /* PBXContainerItemProxy */;
+		};
+		0309E316F830CBBB40E2FAF756F69BA3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-SJSQLGenerator_Example";
+			target = A434A62418A116E604B2FF9AE12B7948 /* Pods-SJSQLGenerator_Example */;
+			targetProxy = 4D1B47D954B8E15DA68EC977DCE14D5B /* PBXContainerItemProxy */;
+		};
+		0BB6B7F860DB0EC77085BC7401DE1696 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SJDBMap;
+			target = A49F256D83072F97ECCCD844FB431ABE /* SJDBMap */;
+			targetProxy = DCF04666A74D2D2C554725B20110C86C /* PBXContainerItemProxy */;
+		};
+		B01CFFF6B62B79123573708FB058B589 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SJSQLGenerator;
+			target = BFA48CAE613252DD027FE3DE77A75CED /* SJSQLGenerator */;
+			targetProxy = E4410DCB8499869F00FB54F873AB6897 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0F16A71BDEC09C6BF64991A9457AD354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E35C4A483AED9BB3DDE1B9A19D6A675 /* Pods-SJSQLGenerator_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SJSQLGenerator_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SJSQLGenerator_Tests/Pods-SJSQLGenerator_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		13E651821F194E2CEA424677D31C166E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48F5EA61C58C8070058639B408FBE715 /* Pods-SJSQLGenerator_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SJSQLGenerator_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SJSQLGenerator_Example/Pods-SJSQLGenerator_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2E86A9BEFFDAC699F01098F421183A01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AEABD65287EBB0A6A6D4C57F52C495F /* Pods-SJSQLGenerator_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SJSQLGenerator_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SJSQLGenerator_Tests/Pods-SJSQLGenerator_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		495ECDB0388153D096C365C3FFE8A3C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 934E78CC3D1C7E07EA492824DAA9184B /* SJSQLGenerator.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SJSQLGenerator/SJSQLGenerator-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SJSQLGenerator/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SJSQLGenerator/SJSQLGenerator.modulemap";
+				PRODUCT_MODULE_NAME = SJSQLGenerator;
+				PRODUCT_NAME = SJSQLGenerator;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		600275DC7EF8429427BA700A6359F309 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 934E78CC3D1C7E07EA492824DAA9184B /* SJSQLGenerator.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SJSQLGenerator/SJSQLGenerator-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SJSQLGenerator/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SJSQLGenerator/SJSQLGenerator.modulemap";
+				PRODUCT_MODULE_NAME = SJSQLGenerator;
+				PRODUCT_NAME = SJSQLGenerator;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8B33C5230DE4A9DFA6D8F46505DD7AF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		B42B54097A876E8A982CBF5DAA91B1AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		C227BA955740FD15B846EF4F7C2FE7CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61D4C122E366D880A9EBD90269E3D828 /* SJDBMap.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SJDBMap/SJDBMap-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SJDBMap/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SJDBMap/SJDBMap.modulemap";
+				PRODUCT_MODULE_NAME = SJDBMap;
+				PRODUCT_NAME = SJDBMap;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E2EA2CAAC446E38D95BE5F4FCFF856DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35B704F538378536DA3F8AC5D79C3C35 /* Pods-SJSQLGenerator_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SJSQLGenerator_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SJSQLGenerator_Example/Pods-SJSQLGenerator_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EB394FC44E92B947FE3906C097B294F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61D4C122E366D880A9EBD90269E3D828 /* SJDBMap.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SJDBMap/SJDBMap-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SJDBMap/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SJDBMap/SJDBMap.modulemap";
+				PRODUCT_MODULE_NAME = SJDBMap;
+				PRODUCT_NAME = SJDBMap;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04104257025EDB181DEB29D7F0B9BA30 /* Build configuration list for PBXNativeTarget "SJSQLGenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				495ECDB0388153D096C365C3FFE8A3C5 /* Debug */,
+				600275DC7EF8429427BA700A6359F309 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B33C5230DE4A9DFA6D8F46505DD7AF7 /* Debug */,
+				B42B54097A876E8A982CBF5DAA91B1AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		558CC72FF085A602EC01C0B0F2302567 /* Build configuration list for PBXNativeTarget "SJDBMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB394FC44E92B947FE3906C097B294F3 /* Debug */,
+				C227BA955740FD15B846EF4F7C2FE7CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA8A1364F798A4B193A90CAA33E51D2F /* Build configuration list for PBXNativeTarget "Pods-SJSQLGenerator_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E86A9BEFFDAC699F01098F421183A01 /* Debug */,
+				0F16A71BDEC09C6BF64991A9457AD354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FEC5F84A91CA7C9EEE3700E79322F9AD /* Build configuration list for PBXNativeTarget "Pods-SJSQLGenerator_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2EA2CAAC446E38D95BE5F4FCFF856DC /* Debug */,
+				13E651821F194E2CEA424677D31C166E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

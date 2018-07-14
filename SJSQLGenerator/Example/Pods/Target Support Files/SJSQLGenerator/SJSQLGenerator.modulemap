@@ -1,0 +1,6 @@
+framework module SJSQLGenerator {
+  umbrella header "SJSQLGenerator-umbrella.h"
+
+  export *
+  module * { export * }
+}

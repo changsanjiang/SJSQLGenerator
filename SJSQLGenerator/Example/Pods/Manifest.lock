@@ -1,0 +1,28 @@
+PODS:
+  - SJDBMap (1.2.0.7):
+    - SJDBMap/DatabaseMapping (= 1.2.0.7)
+    - SJDBMap/Protocol (= 1.2.0.7)
+  - SJDBMap/DatabaseMapping (1.2.0.7):
+    - SJDBMap/Protocol
+  - SJDBMap/Protocol (1.2.0.7)
+  - SJSQLGenerator (0.1.0):
+    - SJDBMap
+
+DEPENDENCIES:
+  - SJSQLGenerator (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SJDBMap
+
+EXTERNAL SOURCES:
+  SJSQLGenerator:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SJDBMap: 9b2e5c56c655817682a16f3b55f31ba1e70f3c53
+  SJSQLGenerator: 1576b2988c637f486bffe9bce59c8e0c76346e67
+
+PODFILE CHECKSUM: b508d82293edbcab9e158e80626a99d6d3f242d4
+
+COCOAPODS: 1.5.3

@@ -1,1 +1,0 @@
-../../../SJDBMap/SJDBMap/DatabaseMapping/SJDatabaseMap.h

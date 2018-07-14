@@ -1,0 +1,13 @@
+use_frameworks!
+
+target 'SJSQLGenerator_Example' do
+  pod 'SJSQLGenerator', :path => '../'
+
+  pod 'SJDBMap'
+
+  target 'SJSQLGenerator_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
