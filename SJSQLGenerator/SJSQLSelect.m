@@ -98,6 +98,33 @@ NS_ASSUME_NONNULL_BEGIN
 }
 @end
 
+#pragma mark - Group_By
+@interface SJSQLSelect(Group_By)<SJSQLGroupBy>
+@end
+
+@implementation SJSQLSelect(Group_By)
+- (id<SJSQLHaving>  _Nonnull (^)(char * _Nonnull))GROUP_BY {
+    return ^ (char *sub){
+        [self->_sqlStrM appendFormat:@" GROUP BY %s", sub];
+        return (id)self;
+    };
+}
+@end
+
+
+#pragma mark - Having
+@interface SJSQLSelect(Having)<SJSQLHaving>
+@end
+
+@implementation SJSQLSelect(Having)
+- (id<SJSQLOrderBy>  _Nonnull (^)(char * _Nonnull))HAVING {
+    return ^ (char *sub) {
+        [self->_sqlStrM appendFormat:@" HAVING %s", sub];
+        return (id)self;
+    };
+}
+@end
+
 #pragma mark - Order_By
 /// 在指定一条 ORDER BY 子句时, 应该保证它是 SELECT 语句中最后一条子句. 如果它不是最后的子句, 将会出现错误消息.
 @interface SJSQLSelect(Order_By)<SJSQLOrderBy>

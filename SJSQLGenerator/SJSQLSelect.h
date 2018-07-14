@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@protocol SJSQLSelect, SJSQLFrom, SJSQLWhere, SJSQLOrderBy, SJSQLToString, SJSQLLimit;
+@protocol SJSQLSelect, SJSQLFrom, SJSQLWhere, SJSQLGroupBy, SJSQLHaving, SJSQLOrderBy, SJSQLToString, SJSQLLimit;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -86,7 +86,15 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 ///
 /// WHERE("(vend_id = 'BRS01' OR vend_id = 'DLL01') AND prod_price >= 3")   --  优先级: ()  优先级更改, 此条子句优先处理 () 中的子句
 ///
-@property (nonatomic, copy, readonly) id<SJSQLOrderBy> (^WHERE)(char *sub);
+@property (nonatomic, copy, readonly) id<SJSQLOrderBy, SJSQLGroupBy> (^WHERE)(char *sub);
+@end
+
+@protocol SJSQLGroupBy<SJSQLToString>
+@property (nonatomic, copy, readonly) id<SJSQLHaving> (^GROUP_BY)(char *sub);
+@end
+
+@protocol SJSQLHaving<SJSQLToString>
+@property (nonatomic, copy, readonly) id<SJSQLOrderBy> (^HAVING)(char *sub);
 @end
 
 @protocol SJSQLOrderBy<SJSQLToString>
