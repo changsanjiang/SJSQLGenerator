@@ -77,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @implementation SJSQLSelect(From)
-- (id<SJSQLWhere> (^)(char *))FROM {
+- (id<SJSQLWhere, SJSQLGroupBy, SJSQLOrderBy, SJSQLLimit> (^)(char *))FROM {
     return ^ (char *sub) {
         [self->_sqlStrM appendFormat:@" FROM %s", sub];
         return (id)self;

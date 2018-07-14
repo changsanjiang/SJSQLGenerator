@@ -82,11 +82,29 @@ static NSString *CollectionViewCellID = @"CollectionViewCell";
     SJ_SELECT("LOWER(vend_name) AS Tse").
     FROM("Vendors").to_s;
     
-    
-    
     sql =
     SJ_SELECT("*").
     FROM("Prodcuts").to_s;
+    
+    sql =
+    SJ_SELECT("COUNT(*) AS items, order_num")
+    .FROM("OrderItems")
+    .GROUP_BY("Order_num")
+    .LIMIT(2, 2).to_s;
+    
+    
+    sql =
+    SJ_SELECT("COUNT(*) AS items, order_num")
+    .FROM("OrderItems")
+    .WHERE("item_price > 4")
+    .GROUP_BY("order_num")
+    .HAVING("items >= 2")
+    .ORDER_BY("order_num, items")
+    .LIMIT(2, 2).to_s;
+    
+    
+    
+    
     
     
     

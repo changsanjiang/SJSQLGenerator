@@ -53,7 +53,7 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 @end
 
 @protocol SJSQLFrom<SJSQLToString>
-@property (nonatomic, copy, readonly) id<SJSQLWhere, SJSQLOrderBy, SJSQLLimit> (^FROM)(char *sub);
+@property (nonatomic, copy, readonly) id<SJSQLWhere, SJSQLGroupBy, SJSQLOrderBy, SJSQLLimit> (^FROM)(char *sub);
 @end
 
 @protocol SJSQLWhere<SJSQLToString, SJSQLLimit>
@@ -89,11 +89,11 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 @property (nonatomic, copy, readonly) id<SJSQLOrderBy, SJSQLGroupBy> (^WHERE)(char *sub);
 @end
 
-@protocol SJSQLGroupBy<SJSQLToString>
+@protocol SJSQLGroupBy<SJSQLToString, SJSQLLimit>
 @property (nonatomic, copy, readonly) id<SJSQLHaving> (^GROUP_BY)(char *sub);
 @end
 
-@protocol SJSQLHaving<SJSQLToString>
+@protocol SJSQLHaving<SJSQLToString, SJSQLLimit>
 @property (nonatomic, copy, readonly) id<SJSQLOrderBy> (^HAVING)(char *sub);
 @end
 
