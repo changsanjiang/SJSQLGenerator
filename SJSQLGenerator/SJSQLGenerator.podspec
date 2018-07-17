@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SJSQLGenerator'
-  s.version          = '0.0.0.1'
+  s.version          = '0.0.0.2'
   s.summary          = '便利的构造SQL语句.'
 
 # This description is used to generate tags and improve search results.
