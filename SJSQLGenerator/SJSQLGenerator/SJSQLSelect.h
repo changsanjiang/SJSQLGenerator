@@ -86,7 +86,7 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 ///
 /// WHERE("(vend_id = 'BRS01' OR vend_id = 'DLL01') AND prod_price >= 3")   --  优先级: ()  优先级更改, 此条子句优先处理 () 中的子句
 ///
-@property (nonatomic, copy, readonly) id<SJSQLOrderBy, SJSQLGroupBy> (^WHERE)(char *sub);
+@property (nonatomic, copy, readonly) id<SJSQLOrderBy, SJSQLGroupBy> (^WHERE)(char *format, ...);
 @end
 
 @protocol SJSQLGroupBy<SJSQLToString, SJSQLLimit>
@@ -107,8 +107,8 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 ///
 /// 如果它不是最后的子句, 将会出现错误消息
 ///
-/// ORDER_BY("prod_price DESC, prod_id ASC")                                --  DESC: Z -> A, ASC:  A -> Z
-///
+/// ORDER_BY("prod_price DESC, prod_id ASC")                                --  以price倒序排列, price相同的以id正序排列, 依次类推
+///                                                                         --  DESC: Z -> A, ASC:  A -> Z;
 @property (nonatomic, copy, readonly) id<SJSQLLimit, SJSQLToString> (^ORDER_BY)(char *sub);
 @end
 

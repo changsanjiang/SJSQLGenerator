@@ -9,6 +9,7 @@
 #import "SJViewController.h"
 #import "Product.h"
 #import "SJSQL.h"
+#import <stdarg.h>
 
 /**
  最近在复习SQL, 我会在这个库记录SQL相关的子句, 以防后期遗忘
@@ -103,11 +104,16 @@ static NSString *CollectionViewCellID = @"CollectionViewCell";
     .LIMIT(2, 2).to_s;
     
     
-    
-    
-    
-    
-    
+    sql =
+    SJ_SELECT("cust_name, cust_email")
+    .FROM("Customers")
+    .WHERE("cust_id IN (%s)",
+                        SJ_SELECT("cust_id")
+                        .FROM("Orders")
+                        .WHERE("order_num IN (%s)",
+                                             SJ_SELECT("order_num")
+                                             .FROM("OrderItems")
+                                             .WHERE("prod_id = 'RGAN01'").to_s_c).to_s_c).to_s;
     
     
     _data = sj_sql_query(self.database, sql.UTF8String, nil);

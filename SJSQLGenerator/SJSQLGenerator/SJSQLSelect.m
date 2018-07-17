@@ -7,9 +7,12 @@
 //
 
 #import "SJSQLSelect.h"
-
+#import <stdarg.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+#define SJSQL_CONFIG_MAXLOG (4096)
+
 /**
  目的很简单如下:
  函数调用:    SELECT("*").FROM("Products").WHERE("prod_price = 3.14").to_s;
@@ -55,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
     return [_sqlStrM stringByAppendingString:@";"];
 }
 - (const char *)to_s_c {
-    return self.to_s.UTF8String;
+    return _sqlStrM.UTF8String;
 }
 @end
 
@@ -90,9 +93,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @implementation SJSQLSelect(Where)
-- (id (^)(char *))WHERE {
-    return ^ (char *sub){
-        [self->_sqlStrM appendFormat:@" WHERE %s", sub];
+- (id (^)(char *, ...))WHERE {
+    return ^ (char *format, ...){
+        char buf[SJSQL_CONFIG_MAXLOG];
+        va_list ap;
+        va_start(ap, format);
+        vsnprintf(buf, sizeof(buf), format, ap);
+        va_end(ap);
+        [self->_sqlStrM appendFormat:@" WHERE %s", buf];
         return self;
     };
 }
