@@ -212,16 +212,16 @@
 		776CE6FE20F9AF9F00DD3D28 /* TestModel */ = {
 			isa = PBXGroup;
 			children = (
-				776CE6FF20F9AF9F00DD3D28 /* Order.m */,
-				776CE70020F9AF9F00DD3D28 /* Product.h */,
-				776CE70120F9AF9F00DD3D28 /* Customer.m */,
-				776CE70220F9AF9F00DD3D28 /* Vendor.m */,
-				776CE70320F9AF9F00DD3D28 /* OrderItem.h */,
-				776CE70420F9AF9F00DD3D28 /* Order.h */,
 				776CE70520F9AF9F00DD3D28 /* Customer.h */,
+				776CE70120F9AF9F00DD3D28 /* Customer.m */,
+				776CE70420F9AF9F00DD3D28 /* Order.h */,
+				776CE6FF20F9AF9F00DD3D28 /* Order.m */,
+				776CE70320F9AF9F00DD3D28 /* OrderItem.h */,
+				776CE70820F9AF9F00DD3D28 /* OrderItem.m */,
+				776CE70020F9AF9F00DD3D28 /* Product.h */,
 				776CE70620F9AF9F00DD3D28 /* Product.m */,
 				776CE70720F9AF9F00DD3D28 /* Vendor.h */,
-				776CE70820F9AF9F00DD3D28 /* OrderItem.m */,
+				776CE70220F9AF9F00DD3D28 /* Vendor.m */,
 			);
 			path = TestModel;
 			sourceTree = "<group>";

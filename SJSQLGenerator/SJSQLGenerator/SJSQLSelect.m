@@ -88,6 +88,40 @@ NS_ASSUME_NONNULL_BEGIN
 }
 @end
 
+#pragma mark - Inner Join
+@interface SJSQLSelect(InnerJoin)<SJSQLInnerJoin>
+@end
+
+@implementation SJSQLSelect(InnerJoin)
+- (id (^)(char * _Nonnull))INNER_JOIN {
+    return ^ (char *sub) {
+        [self->_sqlStrM appendFormat:@" INNER JOIN %s", sub];
+        return (id)self;
+    };
+}
+@end
+
+#pragma mark - On
+@interface SJSQLSelect(On)<SJSQLOn>
+@end
+
+@implementation SJSQLSelect(On)
+- (id (^)(char * _Nonnull))ON {
+    return ^ (char *sub) {
+        [self->_sqlStrM appendFormat:@" ON %s", sub];
+        return (id)self;
+    };
+}
+@end
+
+//@protocol SJSQLInnerJoin
+//@property (nonatomic, copy, readonly) id<SJSQLOn>(^INNER_JOIN)(char *sub);
+//@end
+//
+//@protocol SJSQLOn
+//@property (nonatomic, copy, readonly) id<SJSQLToString>(^ON)(char *sub);
+//@end
+
 #pragma mark - Where
 @interface SJSQLSelect(Where)<SJSQLWhere>
 @end

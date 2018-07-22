@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@protocol SJSQLSelect, SJSQLFrom, SJSQLWhere, SJSQLGroupBy, SJSQLHaving, SJSQLOrderBy, SJSQLToString, SJSQLLimit;
+@protocol SJSQLSelect, SJSQLFrom, SJSQLInnerJoin, SJSQLOn, SJSQLWhere, SJSQLGroupBy, SJSQLHaving, SJSQLOrderBy, SJSQLToString, SJSQLLimit;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -53,7 +53,21 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 @end
 
 @protocol SJSQLFrom<SJSQLToString>
-@property (nonatomic, copy, readonly) id<SJSQLWhere, SJSQLGroupBy, SJSQLOrderBy, SJSQLLimit> (^FROM)(char *sub);
+@property (nonatomic, copy, readonly) id<SJSQLInnerJoin, SJSQLWhere, SJSQLGroupBy, SJSQLOrderBy, SJSQLLimit> (^FROM)(char *sub);
+@end
+
+@protocol SJSQLInnerJoin
+/// SELECT vend_name, prod_name, prod_price
+/// FROM Vendors INNER JOIN Products
+/// ON Vendors.vend_id = Products.vend_id;
+@property (nonatomic, copy, readonly) id<SJSQLOn>(^INNER_JOIN)(char *sub);
+@end
+
+@protocol SJSQLOn
+/// SELECT vend_name, prod_name, prod_price
+/// FROM Vendors INNER JOIN Products
+/// ON Vendors.vend_id = Products.vend_id;
+@property (nonatomic, copy, readonly) id<SJSQLToString>(^ON)(char *sub);
 @end
 
 @protocol SJSQLWhere<SJSQLToString, SJSQLLimit>

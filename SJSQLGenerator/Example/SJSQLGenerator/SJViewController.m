@@ -103,7 +103,6 @@ static NSString *CollectionViewCellID = @"CollectionViewCell";
     .ORDER_BY("order_num, items")
     .LIMIT(2, 2).to_s;
     
-    
     sql =
     SJ_SELECT("cust_name, cust_email")
     .FROM("Customers")
@@ -114,6 +113,13 @@ static NSString *CollectionViewCellID = @"CollectionViewCell";
                                              SJ_SELECT("order_num")
                                              .FROM("OrderItems")
                                              .WHERE("prod_id = 'RGAN01'").to_s_c).to_s_c).to_s;
+    
+    
+    sql =
+    SJ_SELECT("vend_city, vend_name, prod_name, prod_price")
+    .FROM("Vendors")
+    .INNER_JOIN("Products")
+    .ON("Vendors.vend_id = Products.vend_id").to_s;
     
     
     _data = sj_sql_query(self.database, sql.UTF8String, nil);
