@@ -41,7 +41,6 @@ static NSString *CollectionViewCellID = @"CollectionViewCell";
     
     [self prepareTestData];
     
-    
     NSString *
     sql =
     SJ_SELECT("*").
@@ -115,11 +114,24 @@ static NSString *CollectionViewCellID = @"CollectionViewCell";
                                              .WHERE("prod_id = 'RGAN01'").to_s_c).to_s_c).to_s;
     
     
+    
+    sql =
+    SJ_SELECT("cust_name, cust_email")
+    .FROM("Customers")
+    .INNER_JOIN("Orders, OrderItems")
+    .ON("prod_id = 'RGAN01' AND OrderItems.order_num = Orders.order_num AND Customers.cust_id = Orders.cust_id").to_s;
+    
+    
     sql =
     SJ_SELECT("vend_city, vend_name, prod_name, prod_price")
     .FROM("Vendors")
     .INNER_JOIN("Products")
     .ON("Vendors.vend_id = Products.vend_id").to_s;
+    
+    
+    sql =
+    SJ_SELECT("Customers.cust_id, Orders.order_num")
+    .FROM("Customers").LEFT_OUTER_JOIN("Orders").ON("Customers.cust_id = Orders.cust_id").to_s;
     
     
     _data = sj_sql_query(self.database, sql.UTF8String, nil);

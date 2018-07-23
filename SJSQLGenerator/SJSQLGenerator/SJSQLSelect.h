@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@protocol SJSQLSelect, SJSQLFrom, SJSQLInnerJoin, SJSQLOn, SJSQLWhere, SJSQLGroupBy, SJSQLHaving, SJSQLOrderBy, SJSQLToString, SJSQLLimit;
+@protocol SJSQLSelect, SJSQLFrom, SJSQLInnerJoin, SJSQLLeftOuterJoin, SJSQLOn, SJSQLWhere, SJSQLGroupBy, SJSQLHaving, SJSQLOrderBy, SJSQLToString, SJSQLLimit;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -53,7 +53,7 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 @end
 
 @protocol SJSQLFrom<SJSQLToString>
-@property (nonatomic, copy, readonly) id<SJSQLInnerJoin, SJSQLWhere, SJSQLGroupBy, SJSQLOrderBy, SJSQLLimit> (^FROM)(char *sub);
+@property (nonatomic, copy, readonly) id<SJSQLInnerJoin, SJSQLLeftOuterJoin, SJSQLWhere, SJSQLGroupBy, SJSQLOrderBy, SJSQLLimit> (^FROM)(char *sub);
 @end
 
 @protocol SJSQLInnerJoin
@@ -61,6 +61,10 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 /// FROM Vendors INNER JOIN Products
 /// ON Vendors.vend_id = Products.vend_id;
 @property (nonatomic, copy, readonly) id<SJSQLOn>(^INNER_JOIN)(char *sub);
+@end
+
+@protocol SJSQLLeftOuterJoin
+@property (nonatomic, copy, readonly) id<SJSQLOn>(^LEFT_OUTER_JOIN)(char *sub);
 @end
 
 @protocol SJSQLOn

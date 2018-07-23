@@ -101,6 +101,19 @@ NS_ASSUME_NONNULL_BEGIN
 }
 @end
 
+#pragma mark - Left Outer Join
+@interface SJSQLSelect(LeftOuterJoin)<SJSQLLeftOuterJoin>
+@end
+
+@implementation SJSQLSelect(LeftOuterJoin)
+- (id (^)(char * _Nonnull))LEFT_OUTER_JOIN {
+    return ^ (char *sub) {
+        [self->_sqlStrM appendFormat:@" LEFT OUTER JOIN %s", sub];
+        return (id)self;
+    };
+}
+@end
+
 #pragma mark - On
 @interface SJSQLSelect(On)<SJSQLOn>
 @end
