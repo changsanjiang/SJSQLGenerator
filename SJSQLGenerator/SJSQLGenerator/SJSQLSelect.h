@@ -53,6 +53,9 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 @end
 
 @protocol SJSQLFrom<SJSQLToString>
+/// SELECT Customers.cust_id, Orders.order_num
+/// FROM Customers LEFT OUTER JOIN Orders
+/// ON Customers.cust_id = Orders.cust_id;
 @property (nonatomic, copy, readonly) id<SJSQLInnerJoin, SJSQLLeftOuterJoin, SJSQLWhere, SJSQLGroupBy, SJSQLOrderBy, SJSQLLimit> (^FROM)(char *sub);
 @end
 
