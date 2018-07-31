@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@protocol SJSQLSelect, SJSQLFrom, SJSQLInnerJoin, SJSQLLeftOuterJoin, SJSQLOn, SJSQLWhere, SJSQLGroupBy, SJSQLHaving, SJSQLOrderBy, SJSQLToString, SJSQLLimit;
+@protocol SJSQLSelect, SJSQLFrom, SJSQLInnerJoin, SJSQLLeftOuterJoin, SJSQLOn, SJSQLWhere, SJUnion, SJSQLGroupBy, SJSQLHaving, SJSQLOrderBy, SJSQLToString, SJSQLLimit;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -57,13 +57,20 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 @end
 
 @protocol SJSQLInnerJoin
-/// SELECT vend_name, prod_name, prod_price
+/// 内联结, 也称等值联结
+/// 它是基于两个表之间的相等测试
+/// 例如: 产品表中包含供应商的id. 当想要获取供应商名及产品名称等时, 可以通过联结两个表来实现. 当然也可以分开查询.
+/// SELECT Vendors.vend_name, Products.prod_name, Products.prod_price
 /// FROM Vendors INNER JOIN Products
 /// ON Vendors.vend_id = Products.vend_id;
 @property (nonatomic, copy, readonly) id<SJSQLOn>(^INNER_JOIN)(char *sub);
 @end
 
 @protocol SJSQLLeftOuterJoin
+/// 外联结, 左外部结合
+/// 返回一个表里匹配到的全部记录, 即使第二个表里对应的列是空的
+/// For Example: |10004|NULL| 将会被返回
+///              |10005|  3 |
 /// SELECT Customers.cust_id, Orders.order_num
 /// FROM Customers LEFT OUTER JOIN Orders
 /// ON Customers.cust_id = Orders.cust_id;
@@ -74,7 +81,7 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 /// SELECT vend_name, prod_name, prod_price
 /// FROM Vendors INNER JOIN Products
 /// ON Vendors.vend_id = Products.vend_id;
-@property (nonatomic, copy, readonly) id<SJSQLToString>(^ON)(char *sub);
+@property (nonatomic, copy, readonly) id<SJSQLGroupBy, SJSQLToString>(^ON)(char *sub);
 @end
 
 @protocol SJSQLWhere<SJSQLToString, SJSQLLimit>
@@ -107,7 +114,11 @@ extern id<SJSQLFrom> SJ_SELECT(char *sub);
 ///
 /// WHERE("(vend_id = 'BRS01' OR vend_id = 'DLL01') AND prod_price >= 3")   --  优先级: ()  优先级更改, 此条子句优先处理 () 中的子句
 ///
-@property (nonatomic, copy, readonly) id<SJSQLOrderBy, SJSQLGroupBy> (^WHERE)(char *format, ...);
+@property (nonatomic, copy, readonly) id<SJSQLOrderBy, SJSQLGroupBy, SJUnion> (^WHERE)(char *format, ...);
+@end
+
+@protocol SJUnion
+@property (nonatomic, copy, readonly) id<SJSQLSelect>(^UNION)(void);
 @end
 
 @protocol SJSQLGroupBy<SJSQLToString, SJSQLLimit>

@@ -131,8 +131,35 @@ static NSString *CollectionViewCellID = @"CollectionViewCell";
     
     sql =
     SJ_SELECT("Customers.cust_id, Orders.order_num")
-    .FROM("Customers").LEFT_OUTER_JOIN("Orders").ON("Customers.cust_id = Orders.cust_id").to_s;
+    .FROM("Customers")
+    .LEFT_OUTER_JOIN("Orders")
+    .ON("Customers.cust_id = Orders.cust_id").to_s;
     
+    
+    sql =
+    SJ_SELECT("Customers.cust_id, COUNT(Orders.order_num) AS num_ord")
+    .FROM("Customers")
+    .LEFT_OUTER_JOIN("Orders")
+    .ON("Customers.cust_id = Orders.cust_id")
+    .GROUP_BY("Customers.cust_id").to_s;
+    
+    
+    sql =
+    SJ_SELECT("Vendors.vend_name, Products.prod_name, Products.prod_price")
+    .FROM("Vendors")
+    .INNER_JOIN("Products")
+    .ON("Vendors.vend_id = Products.vend_id").to_s;
+    
+    
+    sql =
+    SJ_SELECT("cust_name, cust_contact, cust_email")
+    .FROM("Customers")
+    .WHERE("cust_state IN ('IL', 'IN', 'MI')")
+    .UNION()
+    .SELECT("cust_name, cust_contact, cust_email")
+    .FROM("Customers")
+    .WHERE("cust_name = 'Fun4All'")
+    .ORDER_BY("cust_name, cust_contact").to_s;
     
     _data = sj_sql_query(self.database, sql.UTF8String, nil);
     _keys = _data.firstObject.allKeys;

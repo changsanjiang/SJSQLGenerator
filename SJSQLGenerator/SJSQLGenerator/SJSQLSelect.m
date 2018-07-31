@@ -153,6 +153,20 @@ NS_ASSUME_NONNULL_BEGIN
 }
 @end
 
+
+#pragma mark - Union
+@interface SJSQLSelect(Union)<SJUnion>
+@end
+
+@implementation SJSQLSelect(Union)
+- (id _Nonnull (^)(void))UNION {
+    return ^ (void) {
+        [self->_sqlStrM appendString:@" UNION "];
+        return self;
+    };
+}
+@end
+
 #pragma mark - Group_By
 @interface SJSQLSelect(Group_By)<SJSQLGroupBy>
 @end
